@@ -1,0 +1,10 @@
+database:
+  host: localHost
+  port: 5432
+  name: Oct
+  username: WKK
+  password: PCT
+
+server:
+  port: 8000
+  debug: true
