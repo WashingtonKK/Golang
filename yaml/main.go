@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -8,10 +8,11 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+//Struct to hold the data from the yaml file
 type Config struct {
 	Database struct {
-		Host string `yaml:"host"`
-		Port int `yaml:"port"`
+		Host     string `yaml:"host"`
+		Port     int    `yaml:"port"`
 		Username string `yaml:"username"`
 		Password string `yaml:"password"`
 	}
@@ -20,16 +21,16 @@ type Config struct {
 	}
 }
 
-func main () {
+func main() {
 	//Read the config file
 	configFile, err := ioutil.ReadFile("config.yml")
 	if err != nil {
 		log.Fatalf("Failed to read config file: %v", err)
 	}
-	
+
 	//Parse the config file.
 	config := Config{}
-	err =  yaml.Unmarshal(configFile, &config)
+	err = yaml.Unmarshal(configFile, &config)
 
 	if err != nil {
 		log.Fatalf("Failed to parse config file: %V", err)
